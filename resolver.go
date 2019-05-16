@@ -1,11 +1,12 @@
-//go:generate go run github.com/99designs/gqlgen
-package gqlgen_todos
+package grammar_trainer
 
 import (
-	context "context"
-	"fmt"
-	"math/rand"
+	"context"
+
+	"github.com/forrana/grammar-trainer/api/data.Todo"
 )
+
+// THIS CODE IS A STARTING POINT ONLY. IT WILL NOT BE UPDATED WITH SCHEMA CHANGES.
 
 type Resolver struct{
 	todos []Todo
@@ -31,6 +32,9 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input NewTodo) (*Todo
 	}
 	r.todos = append(r.todos, *todo)
 	return todo, nil
+}
+func (r *mutationResolver) DeleteTodos(ctx context.Context, ids []int) ([]*data.Todo, error) {
+	panic("not implemented")
 }
 
 type queryResolver struct{ *Resolver }

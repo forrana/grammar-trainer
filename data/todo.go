@@ -1,4 +1,4 @@
-package gqlgen_todos
+package data
 
 type Todo struct {
 	ID     string
