@@ -1,4 +1,4 @@
-module github.com/forrana/grammar-trainer/api
+module github.com/forrana/gramma-trainer/api
 
 go 1.12
 

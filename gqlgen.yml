@@ -14,4 +14,4 @@ resolver:
   type: Resolver
 models:
   Todo:
-    model: github.com/forrana/grammar-trainer/data.Todo
+    model: github.com/forrana/gramma-trainer/api/data.Todo
