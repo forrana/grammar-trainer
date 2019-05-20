@@ -1,8 +1,32 @@
+type Tag {
+  id: ID!
+  name: String!
+}
+
 type Exercise {
   id: ID!
   text: String!
   done: Boolean!
   user: User!
+  tags: [Tag!]
+}
+
+type Section {
+  id: ID!
+  name: String!
+  description: String
+  nextSection: Section
+  prevSection: Section
+  childSections: [Section!]
+  exercises: [Exercise!]
+  tags: [Tag!]
+}
+
+type Trial {
+  id: ID!
+  exercise: Exercise!
+  section: Section!
+  date: Int!
 }
 
 type User {
@@ -12,6 +36,8 @@ type User {
 
 type Query {
   exercises: [Exercise!]!
+  sections: [Section!]!
+  tags: [Tag!]!
 }
 
 input NewExercise {
@@ -19,7 +45,32 @@ input NewExercise {
   userId: String!
 }
 
+input NewSection {
+  name: String!
+  description: String!
+  nextSection: ID!
+  prevSection: ID!
+  childSections: [ID!]
+  exercises: [ID!]
+  tags: [ID!]
+}
+
+input NewTrial {
+  exercise: ID!
+  section: ID!
+}
+
+input NewTag {
+  name: String!
+}
+
 type Mutation {
-  createTodo(input: NewExercise!): Exercise!
-  deleteTodos(ids: [Int!]): [Exercise]
+  createExercise(input: NewExercise!): Exercise!
+  createSection(input: NewSection!): Section!
+  createTag(input: NewTag!): Tag!
+  createTrial(input: NewTrial!): Trial!
+  deleteExercise(ids: [Int!]): [Exercise]
+  deleteSections(ids: [Int!]): [Section]
+  deleteTags(ids: [Int!]): [Tag]
+  deleteTrials(ids: [Int!]): [Trial]
 }

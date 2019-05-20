@@ -1,51 +1,69 @@
-package gramma_trainer
+package api
 
 import (
 	"context"
-    "fmt"
-    "math/rand"
+
 	"github.com/forrana/gramma-trainer/api/data"
 )
 
 // THIS CODE IS A STARTING POINT ONLY. IT WILL NOT BE UPDATED WITH SCHEMA CHANGES.
 
-type Resolver struct{
-	exercises []data.Exercise
-}
+type Resolver struct{}
 
+func (r *Resolver) Exercise() ExerciseResolver {
+	return &exerciseResolver{r}
+}
 func (r *Resolver) Mutation() MutationResolver {
 	return &mutationResolver{r}
 }
 func (r *Resolver) Query() QueryResolver {
 	return &queryResolver{r}
 }
-func (r *Resolver) Exercise() ExerciseResolver {
-	return &exerciseResolver{r}
+
+type exerciseResolver struct{ *Resolver }
+
+func (r *exerciseResolver) User(ctx context.Context, obj *data.Exercise) (*User, error) {
+	panic("not implemented")
+}
+func (r *exerciseResolver) Tags(ctx context.Context, obj *data.Exercise) ([]Tag, error) {
+	panic("not implemented")
 }
 
 type mutationResolver struct{ *Resolver }
 
 func (r *mutationResolver) CreateExercise(ctx context.Context, input NewExercise) (*data.Exercise, error) {
-	exercise := &data.Exercise{
-		Text:   input.Text,
-		ID:     fmt.Sprintf("T%d", rand.Int()),
-		UserID: input.UserID,
-	}
-	r.exercises = append(r.exercises, *exercise)
-	return exercise, data.DB.Create(&exercise).Error
+	panic("not implemented")
+}
+func (r *mutationResolver) CreateSection(ctx context.Context, input NewSection) (*Section, error) {
+	panic("not implemented")
+}
+func (r *mutationResolver) CreateTag(ctx context.Context, input NewTag) (*Tag, error) {
+	panic("not implemented")
+}
+func (r *mutationResolver) CreateTrial(ctx context.Context, input NewTrial) (*Trial, error) {
+	panic("not implemented")
 }
 func (r *mutationResolver) DeleteExercise(ctx context.Context, ids []int) ([]*data.Exercise, error) {
+	panic("not implemented")
+}
+func (r *mutationResolver) DeleteSections(ctx context.Context, ids []int) ([]*Section, error) {
+	panic("not implemented")
+}
+func (r *mutationResolver) DeleteTags(ctx context.Context, ids []int) ([]*Tag, error) {
+	panic("not implemented")
+}
+func (r *mutationResolver) DeleteTrials(ctx context.Context, ids []int) ([]*Trial, error) {
 	panic("not implemented")
 }
 
 type queryResolver struct{ *Resolver }
 
-func (r *queryResolver) ExercisesList(ctx context.Context) (exercises []data.Exercise, err error) {
-	return exercises, data.DB.Find(&exercises).Error
+func (r *queryResolver) Exercises(ctx context.Context) ([]data.Exercise, error) {
+	panic("not implemented")
 }
-
-type exerciseResolver struct{ *Resolver }
-
-func (r *exerciseResolver) User(ctx context.Context, obj *data.Exercise) (*User, error) {
-	return &User{ID: obj.UserID, Name: "user " + obj.UserID}, nil
+func (r *queryResolver) Sections(ctx context.Context) ([]Section, error) {
+	panic("not implemented")
+}
+func (r *queryResolver) Tags(ctx context.Context) ([]Tag, error) {
+	panic("not implemented")
 }
