@@ -29,7 +29,7 @@ func init() {
 	}
 
 	// create table if it does not exist
-	if !DB.HasTable(&Todo{}) {
-		DB.CreateTable(&Todo{})
+	if !DB.HasTable(&Exercise{}) {
+		DB.CreateTable(&Exercise{})
 	}
 }

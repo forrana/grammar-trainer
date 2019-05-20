@@ -13,5 +13,5 @@ resolver:
   filename: resolver.go
   type: Resolver
 models:
-  Todo:
-    model: github.com/forrana/gramma-trainer/api/data.Todo
+  Exercise:
+    model: github.com/forrana/gramma-trainer/api/data.Exercise

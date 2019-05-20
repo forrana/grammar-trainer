@@ -2,7 +2,7 @@
 
 package gramma_trainer
 
-type NewTodo struct {
+type NewExercise struct {
 	Text   string `json:"text"`
 	UserID string `json:"userId"`
 }

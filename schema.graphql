@@ -1,4 +1,4 @@
-type Todo {
+type Exercise {
   id: ID!
   text: String!
   done: Boolean!
@@ -11,15 +11,15 @@ type User {
 }
 
 type Query {
-  todos: [Todo!]!
+  exercises: [Exercise!]!
 }
 
-input NewTodo {
+input NewExercise {
   text: String!
   userId: String!
 }
 
 type Mutation {
-  createTodo(input: NewTodo!): Todo!
-  deleteTodos(ids: [Int!]): [Todo]
+  createTodo(input: NewExercise!): Exercise!
+  deleteTodos(ids: [Int!]): [Exercise]
 }

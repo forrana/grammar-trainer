@@ -1,6 +1,6 @@
 package data
 
-type Todo struct {
+type Exercise struct {
 	ID     string
 	Text   string
 	Done   bool
