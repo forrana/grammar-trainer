@@ -15,3 +15,9 @@ resolver:
 models:
   Exercise:
     model: github.com/forrana/gramma-trainer/api/data.Exercise
+  Section:
+    model: github.com/forrana/gramma-trainer/api/data.Section
+  Tag:
+    model: github.com/forrana/gramma-trainer/api/data.Tag
+  Trial:
+    model: github.com/forrana/gramma-trainer/api/data.Trial

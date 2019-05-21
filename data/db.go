@@ -32,4 +32,13 @@ func init() {
 	if !DB.HasTable(&Exercise{}) {
 		DB.CreateTable(&Exercise{})
 	}
+	if !DB.HasTable(&Section{}) {
+		DB.CreateTable(&Section{})
+	}
+	if !DB.HasTable(&Tag{}) {
+		DB.CreateTable(&Tag{})
+	}
+	if !DB.HasTable(&Trial{}) {
+		DB.CreateTable(&Trial{})
+	}
 }
